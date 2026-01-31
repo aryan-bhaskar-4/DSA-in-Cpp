@@ -72,6 +72,29 @@ public:
         head = prev;
     }
 
+    void removenth(int n){
+        Node* prev = head;
+        int sz = getSize();
+
+        for(int i=1;i<sz-n;i++){
+            prev = prev->next; 
+        }
+
+        prev->next = prev->next->next; 
+    }
+
+    int getSize(){
+        Node* temp = head;
+        int size = 0;
+
+        while(temp != NULL){
+            temp = temp->next;
+            size++;
+        }
+
+        return size;
+    }
+
 };
 
 int main(){
@@ -89,6 +112,10 @@ int main(){
     ll.printll();
 
     ll.reverse();
+
+    ll.printll();
+
+    ll.removenth(3);
 
     ll.printll();
 
