@@ -95,6 +95,29 @@ public:
         return size;
     }
 
+    bool isCycle(){
+        Node* slow = head;
+        Node* fast = head;
+        
+        slow = slow->next;
+        fast = fast->next->next;
+
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                cout << "Cycle Exists..." << endl;
+                return true;
+            }
+
+        }
+
+        cout << "Cycle doesn't Exists...." << endl;
+        return false;
+
+    }
+
 };
 
 int main(){
@@ -118,6 +141,8 @@ int main(){
     ll.removenth(3);
 
     ll.printll();
+
+    ll.isCycle();
 
     return 0;
 }
