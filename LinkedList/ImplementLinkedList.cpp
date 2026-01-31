@@ -9,6 +9,13 @@ public:
         this->data = data;
         next = NULL;
     }
+
+    ~Node(){
+        if(next != NULL){
+            delete next;
+            next = NULL;
+        }
+    }
 };
 
 class List {
@@ -92,6 +99,13 @@ public:
 
         newNode->next = temp->next;
         temp->next = newNode;
+    }
+
+    ~List(){
+        if(head != NULL){
+            delete head;
+            head = NULL;
+        }
     }
 };
 
