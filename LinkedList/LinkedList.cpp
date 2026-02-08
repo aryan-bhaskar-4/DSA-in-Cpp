@@ -118,6 +118,43 @@ public:
 
     }
 
+    void removecycle(){
+        Node* slow = head;
+        Node* fast = head;
+        bool iscycle = false;
+
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                iscycle = true;
+                break;
+            }
+        }
+
+        if(!iscycle){
+            cout << "Cycle not exists..." << endl;
+            return;
+        }
+
+        slow = head;
+        if(fast == slow){
+            while(fast->next != slow){
+                fast = fast->next;
+            }
+            fast->next = NULL;
+        } else {
+            Node* prev = fast;
+            while(slow != fast){
+                slow = slow->next;
+                prev = fast;
+                fast = fast->next;
+            }   
+            prev->next = NULL;
+        }
+    }
+
 };
 
 int main(){
@@ -143,6 +180,8 @@ int main(){
     ll.printll();
 
     ll.isCycle();
+
+    ll.removecycle();
 
     return 0;
 }
