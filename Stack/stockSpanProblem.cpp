@@ -18,8 +18,8 @@ void stockSpanProblem(vector<int> stock,vector<int> span){
         } else {
             int prevHigh = s.top();
             span[i] = i - prevHigh;
-            s.push(i);
         }
+        s.push(i);
     }
 
     for(int i=0;i<span.size();i++){
