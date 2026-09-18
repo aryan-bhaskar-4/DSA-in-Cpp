@@ -1,12 +1,13 @@
 #include<iostream>
 using namespace std;
+
 int main(){
-    int arr[] = {2,5,3,8,1,9,11,3,5,8,9};
+    int arr[] = {2,6,4,8,4,8,1,9,12,7,4};
     int n = sizeof(arr)/sizeof(int);
 
     for(int i=1;i<n;i++){
-        int curr = arr[i];
         int prev = i-1;
+        int curr = arr[i];
 
         while(prev >= 0 && arr[prev] > curr){
             swap(arr[prev],arr[prev+1]);
